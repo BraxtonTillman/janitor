@@ -1,0 +1,428 @@
+/* Popup */
+body.popup {
+  width: 300px;
+  padding: 14px 16px;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 13px;
+  color: #24292f;
+  box-sizing: border-box;
+}
+
+body.popup * {
+  box-sizing: border-box;
+}
+
+.popup h1 {
+  font-size: 17px;
+  font-weight: 650;
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.popup .popup-lead {
+  margin: 0 0 14px;
+  color: #57606a;
+  line-height: 1.45;
+}
+
+.popup-section {
+  border-top: 1px solid #d0d7de;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.popup-section h2 {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #57606a;
+  margin: 0 0 8px;
+}
+
+.popup-score {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 6px;
+}
+
+.popup-score.janitor-score--low {
+  color: #1a7f37;
+}
+.popup-score.janitor-score--mid {
+  color: #9a6700;
+}
+.popup-score.janitor-score--high {
+  color: #cf222e;
+}
+
+.popup-verdict {
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+
+.popup-status {
+  font-size: 12px;
+  color: #57606a;
+}
+
+.popup-status.error {
+  color: #cf222e;
+}
+
+.popup label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #24292f;
+}
+
+.popup textarea {
+  width: 100%;
+  min-height: 64px;
+  padding: 8px 10px;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    monospace;
+  font-size: 11px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  resize: vertical;
+}
+
+.popup .popup-hint {
+  font-size: 11px;
+  color: #57606a;
+  margin: 6px 0 0;
+  line-height: 1.4;
+}
+
+.popup button.primary {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: #24292f;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.popup button.primary:hover {
+  background: #32383f;
+}
+
+/* PR sidebar root */
+#janitor-sidebar-root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 13px;
+  color: #24292f;
+  pointer-events: none;
+}
+
+#janitor-sidebar-root * {
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+#janitor-sidebar-root.janitor-sidebar--collapsed .janitor-sidebar-panel {
+  transform: translateX(calc(100% - 40px));
+}
+
+#janitor-sidebar-root.janitor-sidebar--collapsed .janitor-sidebar-tab {
+  opacity: 1;
+}
+
+.janitor-sidebar-panel {
+  width: min(320px, 100vw - 8px);
+  max-height: 100vh;
+  overflow: auto;
+  background: #ffffff;
+  border-left: 1px solid #d0d7de;
+  box-shadow: -4px 0 24px rgba(31, 35, 40, 0.12);
+  padding: 14px 14px 18px;
+  transition: transform 0.2s ease;
+}
+
+.janitor-sidebar-tab {
+  position: absolute;
+  left: 0;
+  top: 120px;
+  width: 36px;
+  padding: 10px 6px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: #24292f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border-radius: 6px 0 0 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  border: 1px solid #d0d7de;
+  border-right: none;
+}
+
+#janitor-sidebar-root:not(.janitor-sidebar--collapsed):hover
+  .janitor-sidebar-tab {
+  opacity: 0.35;
+}
+
+.janitor-sidebar-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.janitor-brand {
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.janitor-collapse-btn {
+  flex-shrink: 0;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #24292f;
+}
+
+.janitor-collapse-btn:hover {
+  background: #eaeef2;
+}
+
+.janitor-score-block {
+  text-align: center;
+  padding: 12px 8px 14px;
+  background: linear-gradient(180deg, #f6f8fa 0%, #fff 100%);
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.janitor-score-value {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.janitor-score-value.janitor-score--low {
+  color: #1a7f37;
+}
+.janitor-score-value.janitor-score--mid {
+  color: #9a6700;
+}
+.janitor-score-value.janitor-score--high {
+  color: #cf222e;
+}
+
+.janitor-score-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #57606a;
+  margin-top: 6px;
+}
+
+.janitor-verdict {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+
+.janitor-breakdown-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #57606a;
+  margin: 0 0 8px;
+}
+
+.janitor-check {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 8px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: #fff;
+}
+
+.janitor-check-pass .janitor-check-icon {
+  color: #1a7f37;
+}
+.janitor-check-fail .janitor-check-icon {
+  color: #cf222e;
+}
+
+.janitor-check-icon {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1.2;
+  width: 18px;
+  flex-shrink: 0;
+}
+
+.janitor-check-body {
+  min-width: 0;
+}
+
+.janitor-check-name {
+  font-weight: 600;
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.janitor-check-detail {
+  font-size: 11px;
+  color: #57606a;
+  line-height: 1.35;
+}
+
+.janitor-toolbar-title {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #57606a;
+  margin: 14px 0 8px;
+}
+
+.janitor-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.janitor-toolbar button {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  color: #24292f;
+  text-align: left;
+}
+
+.janitor-toolbar button:hover {
+  background: #eaeef2;
+}
+
+.janitor-toolbar button.janitor-btn-danger {
+  border-color: #ff818266;
+  color: #a40e26;
+  background: #fff5f5;
+}
+
+.janitor-toolbar button.janitor-btn-danger:hover {
+  background: #ffebe9;
+}
+
+.janitor-toolbar button.janitor-btn-ok {
+  border-color: #4ac26b66;
+  color: #055d20;
+  background: #ddf4ff;
+}
+
+.janitor-toolbar button.janitor-btn-ok:hover {
+  background: #b6e3ff;
+}
+
+.janitor-sidebar-footnote {
+  margin-top: 12px;
+  font-size: 10px;
+  color: #8c959f;
+  line-height: 1.4;
+}
+
+.janitor-loading {
+  text-align: center;
+  padding: 24px 8px;
+  color: #57606a;
+  font-size: 13px;
+}
+
+.janitor-error {
+  color: #cf222e;
+  font-size: 12px;
+  padding: 8px;
+  border: 1px solid #ff818266;
+  border-radius: 8px;
+  background: #fff5f5;
+}
+
+/* Pulls list badges */
+.janitor-pull-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 999px;
+  vertical-align: middle;
+  line-height: 1.4;
+  border: 1px solid transparent;
+  font-variant-numeric: tabular-nums;
+}
+
+.janitor-pull-badge--loading {
+  background: #f6f8fa;
+  color: #57606a;
+  border-color: #d0d7de;
+}
+
+.janitor-pull-badge.janitor-score--low {
+  background: #dafbe1;
+  color: #055d20;
+  border-color: #4ac26b55;
+}
+
+.janitor-pull-badge.janitor-score--mid {
+  background: #fff8c5;
+  color: #7d4e00;
+  border-color: #d4a72c55;
+}
+
+.janitor-pull-badge.janitor-score--high {
+  background: #ffebe9;
+  color: #a40e26;
+  border-color: #ff818266;
+}
+
+.janitor-pull-badge.janitor-pull-badge--err {
+  background: #f6f8fa;
+  color: #57606a;
+  border-color: #d0d7de;
+}

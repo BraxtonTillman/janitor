@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Janitor</title>
+    <link rel="stylesheet" href="../styles/janitor.css" />
+  </head>
+  <body class="popup">
+    <h1><span aria-hidden="true">🧹</span> Janitor</h1>
+
+    <div id="popup-pr" hidden>
+      <p id="popup-lead-pr" class="popup-lead"></p>
+      <div id="popup-score-wrap" hidden>
+        <div id="popup-score" class="popup-score" aria-live="polite"></div>
+        <p id="popup-verdict" class="popup-verdict"></p>
+      </div>
+      <p id="popup-status" class="popup-status"></p>
+    </div>
+
+    <div id="popup-empty">
+      <p class="popup-lead">Navigate to a GitHub PR to get started.</p>
+    </div>
+
+    <div class="popup-section">
+      <h2>GitHub token</h2>
+      <label for="github-token">Personal access token</label>
+      <textarea
+        id="github-token"
+        spellcheck="false"
+        autocomplete="off"
+        placeholder="ghp_…"
+      ></textarea>
+      <p class="popup-hint">
+        Stored in Chrome sync and sent to the Janitor backend as
+        <code>x-github-token</code> for authenticated GitHub API calls and
+        triage actions.
+      </p>
+      <button type="button" class="primary" id="save-token">Save token</button>
+      <p id="save-status" class="popup-status" aria-live="polite"></p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

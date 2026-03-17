@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "Janitor",
+  "description": "Helps FOSS maintainers triage and clean up AI-generated PRs.",
+  "version": "0.1.0",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*",
+    "http://localhost:3000/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/pull/*"],
+      "js": ["src/content.js"],
+      "css": ["styles/janitor.css"]
+    },
+    {
+      "matches": [
+        "https://github.com/*/*/pulls",
+        "https://github.com/*/*/pulls/*"
+      ],
+      "js": ["src/pulls.js"],
+      "css": ["styles/janitor.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
