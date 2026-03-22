@@ -2,6 +2,10 @@
 
 A Chrome extension + backend that helps FOSS maintainers triage AI-generated PRs.
 
+## Demo
+
+[![Janitor extension demo — watch on YouTube](https://img.youtube.com/vi/JH1yUufWdt4/maxresdefault.jpg)](https://youtu.be/JH1yUufWdt4)
+
 ## Project Structure
 
 ```text
